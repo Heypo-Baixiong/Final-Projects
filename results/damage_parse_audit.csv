@@ -1,0 +1,50 @@
+EVENT_ID,year,STATE,EVENT_TYPE,DAMAGE_PROPERTY,DAMAGE_CROPS,property_invalid,crop_invalid
+5691231,1999,TEXAS,Thunderstorm Wind,30K,K,False,True
+5716029,1999,WEST VIRGINIA,Strong Wind,K,,True,False
+5152788,2000,ILLINOIS,Thunderstorm Wind,K,,True,False
+5161189,2000,TEXAS,Thunderstorm Wind,10K,K,False,True
+5175540,2000,NEBRASKA,Hail,100K,K,False,True
+5163217,2000,FLORIDA,Flash Flood,K,0,True,False
+5234929,2001,MONTANA,Wildfire,K,,True,False
+5250501,2001,MISSISSIPPI,Flash Flood,K,,True,False
+5304992,2002,LOUISIANA,Thunderstorm Wind,,K,False,True
+5316862,2002,KANSAS,Drought,K,,True,False
+5371702,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371703,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371681,2003,MAINE,High Wind,K,,True,False
+5371688,2003,MAINE,High Wind,K,,True,False
+5371689,2003,MAINE,High Wind,K,,True,False
+5371690,2003,MAINE,High Wind,K,,True,False
+5371697,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371698,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371675,2003,MAINE,High Wind,K,,True,False
+5371699,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371700,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371701,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371692,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371693,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371694,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371695,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371679,2003,MAINE,High Wind,K,,True,False
+5371680,2003,MAINE,High Wind,K,,True,False
+5371682,2003,MAINE,High Wind,K,,True,False
+5371683,2003,MAINE,High Wind,K,,True,False
+5371696,2003,NEW HAMPSHIRE,High Wind,K,,True,False
+5371685,2003,MAINE,High Wind,K,,True,False
+5371686,2003,MAINE,High Wind,K,,True,False
+5371687,2003,MAINE,High Wind,K,,True,False
+5371684,2003,MAINE,High Wind,K,,True,False
+5371676,2003,MAINE,High Wind,K,,True,False
+5371691,2003,MAINE,High Wind,K,,True,False
+5371677,2003,MAINE,High Wind,K,,True,False
+5371678,2003,MAINE,High Wind,K,,True,False
+5378976,2003,VIRGINIA,Thunderstorm Wind,K,,True,False
+5384121,2004,WASHINGTON,High Wind,K,,True,False
+5384122,2004,WASHINGTON,High Wind,K,,True,False
+5423037,2004,GEORGIA,Flood,K,20K,True,False
+5480120,2005,KANSAS,Tornado,K,,True,False
+5505569,2006,IOWA,Hail,K,5K,True,False
+5518627,2006,OHIO,Flash Flood,8M,M,False,True
+5514278,2006,OHIO,Flash Flood,K,,True,False
+5514279,2006,OHIO,Flash Flood,K,,True,False
+5521704,2006,KENTUCKY,Hail,K,0K,True,False
