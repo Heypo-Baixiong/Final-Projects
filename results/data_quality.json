@@ -1,0 +1,12 @@
+{
+  "raw_rows": 1708370,
+  "exact_duplicates_removed": 0,
+  "conus_records": 1627967,
+  "excluded_geography_rows": 80403,
+  "missing_episode_ids": 3,
+  "source_year_differs_from_start_year": 8,
+  "invalid_property_strings": 44,
+  "missing_property_values": 569258,
+  "invalid_crop_strings": 5,
+  "missing_crop_values": 680820
+}

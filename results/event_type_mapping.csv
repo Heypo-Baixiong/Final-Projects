@@ -1,0 +1,48 @@
+EVENT_TYPE,category,records
+Astronomical Low Tide,Other,653
+Avalanche,Other,744
+Blizzard,Winter / Cold,14544
+Coastal Flood,Flood / Rain,4135
+Cold/Wind Chill,Winter / Cold,16790
+Debris Flow,Other,1755
+Dense Fog,Other,16794
+Dense Smoke,Other,145
+Drought,Drought,76277
+Dust Devil,Other,240
+Dust Storm,Other,1729
+Excessive Heat,Heat,19539
+Extreme Cold/Wind Chill,Winter / Cold,16207
+Flash Flood,Flood / Rain,102243
+Flood,Flood / Rain,65378
+Freezing Fog,Other,476
+Frost/Freeze,Winter / Cold,14795
+Funnel Cloud,Other,9562
+Hail,Hail,328533
+Heat,Heat,31999
+Heavy Rain,Flood / Rain,27732
+Heavy Snow,Winter / Cold,72084
+High Surf,Other,1081
+High Wind,Severe Wind,86989
+Hurricane (Typhoon),Tropical / Surge,1997
+Ice Storm,Winter / Cold,12218
+Lake-Effect Snow,Winter / Cold,2683
+Lakeshore Flood,Flood / Rain,358
+Lightning,Lightning,17758
+Marine High Wind,Other,3
+Northern Lights,Other,8
+Rip Current,Other,1554
+Seiche,Other,70
+Sleet,Winter / Cold,844
+Sneakerwave,Other,47
+Storm Surge/Tide,Tropical / Surge,1596
+Strong Wind,Severe Wind,26663
+Thunderstorm Wind,Severe Wind,428453
+Tornado,Tornado,41140
+Tropical Depression,Tropical / Surge,538
+Tropical Storm,Tropical / Surge,6897
+Tsunami,Other,29
+Volcanic Ash,Other,1
+Waterspout,Other,1091
+Wildfire,Wildfire,8561
+Winter Storm,Winter / Cold,86427
+Winter Weather,Winter / Cold,78607
