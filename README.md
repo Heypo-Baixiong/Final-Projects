@@ -1,29 +1,22 @@
 # U.S. Severe-Weather Reports, 1996–2024
 
-This notebook examines the frequency, seasonality, SST associations, and recorded damages of NOAA Storm Events reports. It retains the original nine working hazard categories, original database scope, and seven-figure sequence. A report is a local database entry; an episode groups related entries and is not necessarily one independent physical storm.
+[Open the notebook](Extreme_Weather_Final%20Project.ipynb).
 
-## Scientific question and hypotheses
+This project examines NOAA Storm Events reports alongside sea-surface temperature. Its main finding is that measurement choices can change the sign of a result: holding hail size at ≥1 inch reverses the count trend, while detrending reverses the SST correlation.
 
-The question is what these records show about changes in reported severe weather, once counting units, documented reporting rules, and uncertainty are made explicit.
+## Findings
 
-1. **H1:** Annual report counts increased over 1996–2024.
-2. **H2:** The May–June share increased in 2011–2024 relative to 1996–2010.
-3. **H3:** Annual report counts are positively associated with annual SST anomalies over the broad U.S.-adjacent ocean box.
+- **H1 is sensitive to the 2007 transition.** The unadjusted slope is 777 reports/year (95% HAC interval 567 to 987). Adding a 2007 level shift gives 396/year (−88 to 880); the shift is 7,812 reports (−428 to 16,052). Later counts are higher, but the record cannot distinguish gradual growth from a reporting-regime jump. NCEI documents a database migration in October 2006.
+- **H2 as stated is not supported.** The May–June share falls by 2.94 percentage points (three-year-block 95% interval −4.72 to −1.18). The July–August increase is less certain.
+- **H3 lacks a stable positive association.** Raw r=0.289, detrended r=−0.636, and first-difference r=−0.269. Nine seasonal Gulf comparisons and the post hoc 2014-shift diagnostic appear in the appendix.
+- **Recorded damages are not national loss totals.** The 2022 sum is $21.82 billion, less than one-fifth of NCEI's $112.9 billion estimate for Ian alone, in the same year's dollars. Damage-field fill rates change across coding regimes and do not measure comparable completeness.
 
-## Datasets
+## Data and methods
 
-- [NOAA Storm Events Database](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/): local event reports, 1996–2024; [field definitions](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/Storm-Data-Bulk-csv-Format.pdf).
-- [NOAA ERSSTv5](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html): monthly SST on a 2° grid, with a 1991–2020 anomaly baseline.
-- [U.S. state boundaries](https://github.com/PublicaMundi/MappingAPI): GeoJSON for the CONUS map and land-only Gulf sensitivity checks.
+The notebook uses [Storm Events bulk files](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/), [ERSSTv5](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html), and [state boundaries](https://github.com/PublicaMundi/MappingAPI). Sources for reporting rules and external benchmarks are linked alongside the analysis. Annual totals retain all database locations; the map shows CONUS, and the exploratory Gulf checks use CONUS land reports.
 
-The notebook downloads and caches the inputs. Run all cells in order with NumPy, Pandas, SciPy, statsmodels, Xarray, netCDF4, Matplotlib, Seaborn, GeoPandas, and PyProj installed. NOAA can revise its yearly files, so exact results also depend on the downloaded file versions.
+Methods include report/episode audits, a 2007 level-shift model, a 2010 hail level-and-slope model, HAC uncertainty, and annual-profile block bootstraps. These are descriptive associations, not causal estimates.
 
-## Analysis summary
+## Running the notebook
 
-**H1 is supported for report counts:** the full-period slope is 777 reports/year (95% HAC interval 567 to 987). The notebook uses HAC uncertainty, category-wise Holm correction, episode audits, and a 2010 hail level/slope break test with a constant ≥1-inch comparison. Episode counts fall abruptly around 2006–2007, so recent report/episode comparisons use 2007–2024; neither recent total trend interval excludes zero. Counts should not be interpreted as independent storm frequency.
-
-**H2 as stated is not supported:** the May–June share decreases by 2.94 percentage points (three-year-block 95% interval -4.72 to -1.18). July–August increases by 2.49 points, but its block interval includes zero. Whole-year and block bootstraps preserve each annual monthly profile; simultaneous monthly intervals address the twelve-month comparison.
-
-**H3 is not supported as stated:** raw r=0.289, linearly detrended r=-0.636, and first-difference r=-0.269. The negative year-adjusted slope remains distinguishable from zero with HAC uncertainty, but evidence weakens after allowing a 2014 level shift or using differences. Gulf seasonal checks match spring hail/tornado and summer wind reports to the same season's SST; none of nine exploratory comparisons survives Holm correction. The notebook documents these specifications without treating them as causal estimates.
-
-**Figure 7 describes incomplete recorded loss sums.** Annual coverage of at least one damage component ranges from 25.5% to 93.6%. The 2022 all-report sum is $21.82 billion in 2022 dollars, versus $112.9 billion for Ian alone in the NHC/NCEI assessment, which uses a broader accounting system. Neither inflation adjustment nor annualizing unequal periods corrects incomplete losses; the figure supports no national loss-trend conclusion. The notebook links the NWS reporting rules, hail-threshold notice, relevant studies, and Ian report alongside their interpretations.
+Run cells in order with NumPy, Pandas, SciPy, statsmodels, Xarray, netCDF4, Matplotlib, matplotlib-inline, Seaborn, GeoPandas, and PyProj installed. Inputs are downloaded and cached in `data/`; the seven figures are saved in `figures/` and embedded in the notebook. NOAA may revise historical files, so exact results depend on the cached versions.
