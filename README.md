@@ -7,7 +7,7 @@ This project examines NOAA Storm Events reports alongside sea-surface temperatur
 ## Findings
 
 - **H1 is sensitive to the 2007 transition.** The unadjusted slope is 777 reports/year (95% HAC interval 567 to 987). Adding a 2007 level shift gives 396/year (−88 to 880); the shift is 7,812 reports (−428 to 16,052). Later counts are higher, but the record cannot distinguish gradual growth from a reporting-regime jump. NCEI documents a database migration in October 2006.
-- **H2 as stated is not supported.** The May–June share falls by 2.94 percentage points (three-year-block 95% interval −4.72 to −1.18). The July–August increase is less certain.
+- **H2 as stated is not supported.** The May–June share falls by 2.94 percentage points (three-year-block 95% interval −4.72 to −1.18). Comparing only 2007–2015 with 2016–2024 gives a similar decline of 2.94 points (−5.10 to −0.81), so the decline persists within the post-migration sample. The July–August increase is less certain.
 - **H3 lacks a stable positive association.** Raw r=0.289, detrended r=−0.636, and first-difference r=−0.269. Nine seasonal Gulf comparisons and the post hoc 2014-shift diagnostic appear in the appendix.
 - **Recorded damages are not national loss totals.** The 2022 sum is $21.82 billion, less than one-fifth of NCEI's $112.9 billion estimate for Ian alone, in the same year's dollars. Damage-field fill rates change across coding regimes and do not measure comparable completeness.
 
