@@ -1,23 +1,22 @@
-# Extreme Weather in a Warming World
+# U.S. Severe-Weather Reports, 1996–2024
 
-This notebook investigates how the frequency, seasonality, and economic impact of severe weather events in the United States have changed over 1996–2024, and whether year-to-year variation in event counts tracks year-to-year variation in U.S.-adjacent ocean temperatures.
+[Open the notebook](Extreme_Weather_Final%20Project.ipynb).
 
-## Scientific question and hypotheses
+This project examines NOAA Storm Events reports alongside sea-surface temperature. Its main finding is that measurement choices can change the sign of a result: holding hail size at ≥1 inch reverses the count trend, while detrending reverses the SST correlation.
 
-The overall question is whether U.S. severe weather has become more frequent and more costly as the climate has warmed, and what the climate signal looks like once reporting-practice changes and inflation are factored out. I test three hypotheses:
+## Findings
 
-1. The annual count of reported severe-weather events has increased significantly across 1996–2024.
-2. The seasonal distribution of events has shifted, with a larger share of events occurring in late spring and early summer in the late period than in the early period.
-3. Annual SST anomalies over the U.S.-adjacent ocean basins are positively correlated with annual event counts.
+- **H1 is sensitive to the 2007 transition.** The unadjusted slope is 777 reports/year (95% HAC interval 567 to 987). Adding a 2007 level shift gives 396/year (−88 to 880); the shift is 7,812 reports (−428 to 16,052). Later counts are higher, but the record cannot distinguish gradual growth from a reporting-regime jump. NCEI documents a database migration in October 2006.
+- **H2 as stated is not supported.** The May–June share falls by 2.94 percentage points (three-year-block 95% interval −4.72 to −1.18). Comparing only 2007–2015 with 2016–2024 gives a similar decline of 2.94 points (−5.10 to −0.81), so the decline persists within the post-migration sample. The July–August increase is less certain.
+- **H3 lacks a stable positive association.** Raw r=0.289, detrended r=−0.636, and first-difference r=−0.269. Nine seasonal Gulf comparisons and the post hoc 2014-shift diagnostic appear in the appendix.
+- **Recorded damages are not national loss totals.** The 2022 sum is $21.82 billion, less than one-fifth of NCEI's $112.9 billion estimate for Ian alone, in the same year's dollars. Damage-field fill rates change across coding regimes and do not measure comparable completeness.
 
-## Datasets
+## Data and methods
 
-- **NOAA Storm Events Database** (per-event records, 1996–2024) — https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
-- **NOAA ERSSTv5** (monthly extended reconstructed sea-surface temperature, 2°×2° grid) — https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html
-- **U.S. state boundaries** (public-domain GeoJSON) — https://github.com/PublicaMundi/MappingAPI
+The notebook uses [Storm Events bulk files](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/), [ERSSTv5](https://psl.noaa.gov/data/gridded/data.noaa.ersst.v5.html), and [state boundaries](https://github.com/PublicaMundi/MappingAPI). Sources for reporting rules and external benchmarks are linked alongside the analysis. Annual totals retain all database locations; the map shows CONUS, and the exploratory Gulf checks use CONUS land reports.
 
-All three are downloaded programmatically from inside the notebook; nothing is loaded from a local path.
+Methods include report/episode audits, a 2007 level-shift model, a 2010 hail level-and-slope model, HAC uncertainty, and annual-profile block bootstraps. These are descriptive associations, not causal estimates.
 
-## Analysis summary
+## Running the notebook
 
-I download the Storm Events files for each year and clean them into a single Pandas DataFrame, parsing damage strings into floats, converting dates, and collapsing the 50+ raw event types into nine working categories. ERSSTv5 is loaded with Xarray and reduced to an area-weighted annual SST anomaly time series over the U.S.-adjacent ocean basins, using a 1991–2020 climatology. The three hypotheses are then tested with linear regression (with 95% confidence bands), a chi-square test comparing the early and late halves of the seasonal distribution, and a Pearson correlation between annual SST anomalies and annual event counts.
+Run cells in order with NumPy, Pandas, SciPy, statsmodels, Xarray, netCDF4, Matplotlib, matplotlib-inline, Seaborn, GeoPandas, and PyProj installed. Inputs are downloaded and cached in `data/`; the seven figures are saved in `figures/` and embedded in the notebook. NOAA may revise historical files, so exact results depend on the cached versions.
