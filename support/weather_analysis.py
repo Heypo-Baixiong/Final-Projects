@@ -1,6 +1,6 @@
 """Reproducible, descriptive analysis of NOAA weather reports, 1996–2024.
 
-Run from the repository root: python weather_analysis.py
+Run from the repository root: python support/weather_analysis.py
 The notebook uses the same functions. No causal effect is estimated.
 """
 from pathlib import Path
@@ -18,9 +18,9 @@ from statsmodels.stats.multitest import multipletests
 import xarray as xr
 import matplotlib.pyplot as plt
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 YEARS = np.arange(1996, 2025)
-RESULTS = ROOT / "results"
+RESULTS = ROOT / "support" / "results"
 FIGURES = ROOT / "figures"
 SEED = 42
 CONUS = set("""ALABAMA|ARIZONA|ARKANSAS|CALIFORNIA|COLORADO|CONNECTICUT|
@@ -68,7 +68,7 @@ def fetch_inputs(accept_updated_sst=False):
     NOAA's SST URL is mutable. A changed SST file requires explicit acceptance;
     accepting it updates the manifest and requires rerunning all results.
     """
-    manifest_path = ROOT / "data_manifest.json"
+    manifest_path = ROOT / "support" / "data_manifest.json"
     manifest = json.loads(manifest_path.read_text())
     for item in manifest["files"]:
         path = ROOT / item["path"]

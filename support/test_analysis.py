@@ -2,7 +2,7 @@
 import unittest
 import numpy as np
 import pandas as pd
-from weather_analysis import parse_damage, annual_counts, detrend, hac_model, block_means, YEARS
+from support.weather_analysis import parse_damage, annual_counts, detrend, hac_model, block_means, YEARS
 
 
 class AnalysisChecks(unittest.TestCase):

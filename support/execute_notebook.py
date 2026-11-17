@@ -1,6 +1,7 @@
 """Execute all notebook cells in-process, including rich outputs, without sockets."""
 from pathlib import Path
 import os
+import sys
 import time
 import nbformat
 from IPython.core.interactiveshell import InteractiveShell
@@ -8,8 +9,9 @@ from IPython.utils.capture import capture_output
 
 
 def main():
-    root = Path(__file__).resolve().parent
+    root = Path(__file__).resolve().parents[1]
     os.chdir(root)
+    sys.path.insert(0, str(root))
     path = root / "Extreme_Weather_Final Project.ipynb"
     notebook = nbformat.read(path, as_version=4)
     shell = InteractiveShell.instance()

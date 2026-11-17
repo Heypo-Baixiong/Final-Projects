@@ -1,4 +1,12 @@
-# Validation of the committed revision
+# Validation record
+
+## Presentation cleanup — November 16, 2026
+
+The notebook was reorganized into a reading sequence, supporting files moved into this folder, and large audit-table outputs removed from the main text. All seven figure images are byte-identical to the November 9 version, and all 18 saved result files are unchanged. Numerical prose was checked against those result tables. Notebook format, Python syntax, moved import/data paths and documentation links were checked; the four existing calculation tests passed after relocation.
+
+This was a presentation edit, not a fresh raw-data analysis. Notebook execution counters were cleared, and its metadata records the source commit of the retained figures. The validation below describes the original analytical run.
+
+## Analytical run — November 9, 2026
 
 Validated on 2026-11-09 with Python 3.12.14 and the package versions in `results/package_versions.json`.
 
